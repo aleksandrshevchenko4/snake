@@ -42,11 +42,11 @@ namespace snake
             }
             else if (direction == Direction.UP)
             {
-                x = x + offset;
+                y = y + offset;
             }
             else if (direction == Direction.DOWN)
             {
-                x = x - offset;
+                y = y - offset;
             }
         } 
         public void Draw()
@@ -55,6 +55,11 @@ namespace snake
             Console.Write(sym);
         }
 
+        public void Clear()
+        {
+            sym = ' ';
+            Draw(); 
+        }
         public override string ToString()
         {
             return x + "," + y + "," + sym;
