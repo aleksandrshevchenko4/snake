@@ -1,30 +1,31 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace snake
+namespace Snake
 {
     class FoodCreator
     {
-        private int mapWidth;
-        private int mapHeight;
-        private char sym;
+        int mapWidth;
+        int mapHeight;
+        char sym;
+
+        int x;
+        int y;
 
         Random random = new Random();
 
         public FoodCreator(int mapWidth, int mapHeight, char sym)
         {
-            this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
+            this.mapWidth = mapWidth;
             this.sym = sym;
         }
 
         public Point CreateFood()
         {
-            int x = random.Next(2, mapWidth - 2);
-            int y = random.Next(2, mapHeight - 2);
+            x = random.Next(2, mapWidth - 2);
+            y = random.Next(5, mapHeight - 2);
             return new Point(x, y, sym);
         }
     }
