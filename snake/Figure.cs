@@ -1,40 +1,40 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace snake
+namespace Snake
 {
     class Figure
     {
-        protected List<Point> pList;
+        protected List<Point> pointList;
 
-        public virtual void Draw()
+        public void Draw()
         {
-            foreach (Point p in pList)
+            foreach (Point point in pointList)
             {
-                p.Draw();
+                point.Draw();
             }
         }
-        
-        internal bool  IsHit(Figure figure)
+
+        internal bool IsHit(Figure figure)
         {
-            foreach(var p in pList)
+            foreach(var point in pointList)
             {
-                if (figure.IsHit(p))
+                if (figure.IsHit(point))
                     return true;
             }
             return false;
         }
+
         private bool IsHit(Point point)
         {
-            foreach(var p in pList)
+            foreach(var p in pointList)
             {
                 if (p.IsHit(point))
                     return true;
             }
             return false;
         }
+
     }
 }
