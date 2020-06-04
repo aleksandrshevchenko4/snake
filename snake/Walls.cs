@@ -1,10 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace snake
+namespace Snake
 {
     class Walls
     {
@@ -14,10 +12,11 @@ namespace snake
         {
             wallList = new List<Figure>();
 
-            HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '#');
-            HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '#');
-            VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '#');
-            VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '#');
+            HorizontalLine upLine = new HorizontalLine(1, mapWidth - 2, 4, 'x', 0);
+            HorizontalLine downLine = new HorizontalLine(1, mapWidth - 2, mapHeight - 1, 'x', 0);
+            VerticalLine leftLine = new VerticalLine(5, mapHeight - 1, 0, '|', 0);
+            VerticalLine rightLine = new VerticalLine(5, mapHeight - 1, mapWidth - 1, '|', 0);
+
             wallList.Add(upLine);
             wallList.Add(downLine);
             wallList.Add(leftLine);
@@ -28,7 +27,7 @@ namespace snake
         {
             foreach(var wall in wallList)
             {
-                if (wall.IsHit(figure))
+                if(wall.IsHit(figure))
                 {
                     return true;
                 }
